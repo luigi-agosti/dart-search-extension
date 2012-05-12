@@ -4,6 +4,9 @@ This extension helps dart developers in the discovery of the api.
 
 h2. How to install it?
 
+Get chrome ... and go here
+
+https://chrome.google.com/webstore/detail/ljbllmhhafojalkffppoempkbhdocgdg
 
 
 h2. How to use it?
