@@ -1,5 +1,17 @@
 h1. This is the Dart Search Reference Extension
 
+This extension helps dart developers in the discovery of the api.
+
+h2. How to install it?
+
+
+
+h2. How to use it?
+
+In the search bar type "dart" and then press space. After that as you type you will see the suggestions filled with stuff from the Dart api reference.
+
+h2. Important notes and Thanks
+
 This has been developed on the idea of Roman Nurik extension "Android SDK Reference Search".
 
 https://chrome.google.com/webstore/detail/hgcbffeicehlpmgmnhnkjbjoldkfhoin?utm_source=chrome-ntp-icon
@@ -13,5 +25,3 @@ The dart part can be found in the Android Boriero repository :
 https://github.com/dreab8/London-Dart-Hackathon
 
 We are happy to receive feedback, changes or see the code used for other open source projects.
-
- 
