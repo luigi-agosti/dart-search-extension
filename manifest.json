@@ -1,6 +1,6 @@
 {
 	"name": "Dart Reference Search",
-  	"version": "1.0.1",
+  	"version": "1.0.2",
   	"description": "Adds an 'Dart' omnibox command and view source links for the Dart Api Reference",
   	"icons": { 
   		"16": "logo.jpeg",	

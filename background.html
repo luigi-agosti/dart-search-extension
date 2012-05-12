@@ -10,23 +10,13 @@
 		});
 
 		chrome.omnibox.onInputChanged.addListener(function(query, suggestFn) {
-			console.log("onInputChanged : " + query);
-		
 			suggestFn = suggestFn || function() {
 			};
-			
 			var results = callFromJavascript(query,suggestFn, setResult);
-			
 		});
 		
-		chrome.omnibox.onInputCancelled.addListener(function() {
-			console.log("onInputCancelled");
-		});
-
 		chrome.omnibox.onInputEntered.addListener(function(query) {
-			console.log("onInputEntered : " + query);
-			
-			if (query.indexOf("dartlang.org") != -1) {
+			if (query.indexOf("dartlang.org/") != -1) {
 				chrome.tabs.getSelected(null, function(tab) {
 					chrome.tabs.update(tab.id, {
 						url : query
@@ -49,7 +39,6 @@
 			var omniboxResults = [];
 			
 			for (result in results) {
-				console.log("result : " + result);
 				var parts = results[result].split(',');
 				var descriptionWithMatch = parts[0].replace(query, '<match>' + query + '</match>');
 				omniboxResults.push({ content : parts[1], description : descriptionWithMatch});
