@@ -1,0 +1,18 @@
+{
+	"name": "Dart Reference Search",
+  	"version": "1.0",
+  	"description": "Adds an 'Dart' omnibox command and view source links for the Dart Api Reference",
+  	"icons": { 
+  		"16": "logo.jpeg",	
+		"32": "logo.jpeg",
+		"48": "logo.jpeg",
+		"128": "logo.jpeg", 
+		"logo": "logo.jpeg"
+	},
+	"omnibox": { "keyword": "dart" },
+	"background_page": "background.html",
+  	"permissions": [ "tabs", "http://api.dartlang.org/*" ],
+  	"options_page": "option.html",
+  	"content_scripts": [{ "matches": [ "http://api.dartlang.org/*" ], "js": [ "contentscript.js" ] }],
+  	"background_page": "background.html"
+}

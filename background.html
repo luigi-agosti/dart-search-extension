@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="dartExtension.dart.js"></script>
+</head>
+<script>
+	function prepareSuggestion() {
+		chrome.omnibox.setDefaultSuggestion({
+			description : 'Search Dart docs for <match>%s</match>'
+		});
+
+		chrome.omnibox.onInputChanged.addListener(function(query, suggestFn) {
+			console.log("onInputChanged : " + query);
+			var omniboxResults = [];
+			suggestFn = suggestFn || function() {
+			};
+			var omniboxResults = [];
+			var results = callFromJavascript(query);
+			for (result in results) {
+				console.log("result : " + result);
+				var parts = results[result].split(',');
+				var descriptionWithMatch = parts[0].replace(query, '<match>' + query + '</match>');
+				omniboxResults.push({ content : parts[1], description : descriptionWithMatch});
+			}
+			suggestFn(omniboxResults);
+		});
+		
+		chrome.omnibox.onInputCancelled.addListener(function() {
+			console.log("onInputCancelled");
+		});
+
+		chrome.omnibox.onInputEntered.addListener(function(query) {
+			console.log("onInputEntered : " + query);
+			
+			if (query.indexOf("dartlang.org") != -1) {
+				chrome.tabs.getSelected(null, function(tab) {
+					chrome.tabs.update(tab.id, {
+						url : query
+					});
+				});
+		      } else {
+		    	  chrome.tabs.getSelected(null, function(tab) {
+						chrome.tabs.update(tab.id, {
+							url : 'http://www.dartlang.org/search.html?q=' + query
+						});
+					});
+		      }
+		});
+	}
+	
+	prepareSuggestion()
+</script>
+<body>
+</body>
+</html>
