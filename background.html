@@ -11,18 +11,12 @@
 
 		chrome.omnibox.onInputChanged.addListener(function(query, suggestFn) {
 			console.log("onInputChanged : " + query);
-			var omniboxResults = [];
+		
 			suggestFn = suggestFn || function() {
 			};
-			var omniboxResults = [];
-			var results = callFromJavascript(query);
-			for (result in results) {
-				console.log("result : " + result);
-				var parts = results[result].split(',');
-				var descriptionWithMatch = parts[0].replace(query, '<match>' + query + '</match>');
-				omniboxResults.push({ content : parts[1], description : descriptionWithMatch});
-			}
-			suggestFn(omniboxResults);
+			
+			var results = callFromJavascript(query,suggestFn, setResult);
+			
 		});
 		
 		chrome.omnibox.onInputCancelled.addListener(function() {
@@ -48,7 +42,21 @@
 		});
 	}
 	
-	prepareSuggestion()
+	
+
+	function setResult(results,suggestFn,query){
+				
+			var omniboxResults = [];
+			
+			for (result in results) {
+				console.log("result : " + result);
+				var parts = results[result].split(',');
+				var descriptionWithMatch = parts[0].replace(query, '<match>' + query + '</match>');
+				omniboxResults.push({ content : parts[1], description : descriptionWithMatch});
+			}
+			suggestFn(omniboxResults);
+	}
+prepareSuggestion()
 </script>
 <body>
 </body>
