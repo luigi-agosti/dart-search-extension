@@ -1,0 +1,17 @@
+h1. This is the Dart Search Reference Extension
+
+This has been developed on the idea of Roman Nurik extension "Android SDK Reference Search".
+
+"Android SDK Reference Search" : https://chrome.google.com/webstore/detail/hgcbffeicehlpmgmnhnkjbjoldkfhoin?utm_source=chrome-ntp-icon
+
+All the code has been developed and tested during the London Dart Hackathon 2012.
+
+The general idea was to use as much as possible dart code for the extension and use javascript only for the interface layer to chrome.
+
+The dart part can be found in the Android Boriero repository :
+
+"Dart source code part" : https://github.com/dreab8/London-Dart-Hackathon
+
+We are happy to receive feedback, changes or see the code used for other open source projects.
+
+ 
